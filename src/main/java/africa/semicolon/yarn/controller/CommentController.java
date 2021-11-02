@@ -10,10 +10,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CommentController {
-//    private final PostService commentService = new PostServiceImpl ();
-//
-//    @PostMapping("/api/comment")
-//    public CreatePostResponse addComment(@RequestBody AddCommentRequest addCommentRequest){
-//      return   commentService.addComment(addCommentRequest);
-//    }
+
 }

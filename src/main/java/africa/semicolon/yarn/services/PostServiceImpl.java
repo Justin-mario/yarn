@@ -11,6 +11,7 @@ import africa.semicolon.yarn.dto.responses.FindPostResponse;
 import africa.semicolon.yarn.exceptions.BlogException;
 import africa.semicolon.yarn.utilities.ModelMapper;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PostServiceImpl implements PostService{
@@ -30,6 +31,7 @@ public class PostServiceImpl implements PostService{
         return ModelMapper.mapFindPostResponse(post.get ());
     }
 
+
     @Override
     public CreatePostResponse addComment(AddCommentRequest addCommentRequest) {
         Optional<Post> post = postRepository.findById ( addCommentRequest.getId () );
@@ -41,5 +43,16 @@ public class PostServiceImpl implements PostService{
         postRepository.save ( updatedPost);
         return ModelMapper.map ( updatedPost);
 
+    }
+
+    @Override
+    public void deletePostById(Integer id) {
+        postRepository.delete ( id );
+
+    }
+
+    @Override
+    public List<Post> findAll() {
+      return postRepository.findAll ();
     }
 }

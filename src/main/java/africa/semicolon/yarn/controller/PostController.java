@@ -9,6 +9,8 @@ import africa.semicolon.yarn.services.PostService;
 import africa.semicolon.yarn.services.PostServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PostController {
     private final PostService postService = new PostServiceImpl ();
@@ -25,6 +27,16 @@ public class PostController {
     @PostMapping("/api/comment")
     public CreatePostResponse addComment(@RequestBody AddCommentRequest addCommentRequest){
         return   postService.addComment(addCommentRequest);
+    }
+
+    @DeleteMapping("/api/post/{id}")
+    public void deletePostById(@PathVariable Integer id){
+        postService.deletePostById ( id );
+    }
+
+    @GetMapping("/api/post")
+    public List<Post> findAll(){
+       return postService.findAll ();
     }
 }
 

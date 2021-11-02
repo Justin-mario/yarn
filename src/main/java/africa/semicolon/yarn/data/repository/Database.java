@@ -35,6 +35,6 @@ public class Database<T extends Storable, ID> implements Repository<T, ID>{
         List<T> all = new ArrayList<> ();
         Set<Integer> keys = storage.keySet ();
         keys.forEach ( key -> all.add ( storage.get ( key ) ) );
-        return null;
+        return all;
     }
 }
